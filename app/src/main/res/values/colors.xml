@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorText">#000000</color>
+    <color name="colorForTeams">#616161</color>
+    <color name="suggest_new_game">#f39e77</color>
+    <color name="who_won">#ff0000</color>
+
 </resources>

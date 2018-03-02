@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Court Counter</string>
+
+    <string name="Team_A">Team A</string>
+    <string name="Team_B">Team B</string>
+    <string name="plus_3_points">+3 Points</string>
+    <string name="plus_2_points">+2 Points</string>
+    <string name="Free_Throw">Free throw</string>
+    <string name="reset">reset</string>
+    <string name="new_game">press reset to start new game</string>
+    <string name="team_A_won">Team A won!</string>
+    <string name="team_B_won">Team B won!</string>
+
 </resources>

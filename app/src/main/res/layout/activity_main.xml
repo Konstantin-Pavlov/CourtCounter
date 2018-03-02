@@ -18,56 +18,49 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:padding="16dp">
-
+            android:padding="@dimen/padding">
 
             <TextView
+                style="@style/TeamNameStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:gravity="center_horizontal"
-                android:padding="16dp"
-                android:text="Team A"
-                android:textColor="#616161"
-                android:textSize="14sp" />
+                android:text="@string/Team_A"
+                android:textColor="@color/colorForTeams"
+                android:textSize="@dimen/TeamTextSize" />
 
             <TextView
                 android:id="@+id/team_a_score"
+                style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
-                android:paddingBottom="24dp"
+                android:paddingBottom="@dimen/paddingBottom"
                 android:text="0"
-                android:textColor="#000000"
-                android:textSize="56sp" />
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/ScoreTextSize" />
 
             <Button
+                style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
                 android:onClick="addThreeForTeamA"
-                android:text="+3 Points" />
+                android:text="@string/plus_3_points" />
 
             <Button
+                style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
                 android:onClick="addTwoForTeamA"
-                android:text="+2 Points" />
+                android:text="@string/plus_2_points" />
 
             <Button
+                style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
                 android:onClick="addOneForTeamA"
-                android:text="Free throw" />
+                android:text="@string/Free_Throw" />
 
         </LinearLayout>
 
@@ -84,60 +77,52 @@
             android:layout_height="match_parent"
             android:layout_weight="1 "
             android:orientation="vertical"
-            android:padding="16dp"
+            android:padding="@dimen/padding"
             tools:context=".MainActivity">
 
 
             <TextView
+                style="@style/TeamNameStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:gravity="center_horizontal"
-                android:padding="16dp"
-                android:text="Team B"
-                android:textColor="#616161"
-                android:textSize="14sp" />
+                android:text="@string/Team_B"
+                android:textColor="@color/colorForTeams"
+                android:textSize="@dimen/TeamTextSize" />
 
             <TextView
                 android:id="@+id/team_b_score"
+                style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
-                android:paddingBottom="24dp"
+                android:paddingBottom="@dimen/paddingBottom"
                 android:text="0"
-                android:textColor="#000000"
-                android:textSize="56sp" />
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/ScoreTextSize" />
 
             <Button
+                style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
                 android:onClick="addThreeForTeamB"
-                android:text="+3 Points" />
+                android:text="@string/plus_3_points" />
 
             <Button
+                style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
                 android:onClick="addTwoForTeamB"
-                android:text="+2 Points" />
+                android:text="@string/plus_2_points" />
 
             <Button
                 android:id="@+id/team_b_3d_button"
+                style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-
                 android:onClick="addOneForTeamB"
-                android:text="Free throw" />
-
+                android:text="@string/Free_Throw" />
 
         </LinearLayout>
 
@@ -145,46 +130,37 @@
     </LinearLayout>
 
     <TextView
-
-        android:textColor="#ff0000"
-
         android:id="@+id/who_won"
-        android:layout_above="@id/suggest_new_game"
-
-        android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/suggest_new_game"
+        android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal"
-
         android:text=""
-
+        android:textColor="@color/who_won"
         android:textSize="30sp" />
 
     <TextView
-
-        android:textColor="#f39e77"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/holo_purple"
         android:id="@+id/suggest_new_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/reset_button"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_purple"
+        android:gravity="center_horizontal"
         android:text=""
-        android:textSize="15sp"
-        android:gravity="center_horizontal"/>
+        android:textColor="@color/suggest_new_game"
+        android:textSize="15sp" />
 
 
     <Button
-
         android:id="@+id/reset_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="reset"
-        android:text="reset"
-        />
-
+        android:text="@string/reset" />
 
 </RelativeLayout>

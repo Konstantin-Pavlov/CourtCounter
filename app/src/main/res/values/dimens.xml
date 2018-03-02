@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <dimen name="TeamTextSize">14sp</dimen>
+    <dimen name="ScoreTextSize">56sp</dimen>
+    <dimen name="layout_width_height">48dp</dimen>
+    <dimen name="layout_marginLeft_marginRight">12dp</dimen>
+    <dimen name="layout_marginBottom_marginTop">16dp</dimen>
+    <dimen name="padding">16dp</dimen>
+    <dimen name="paddingBottom">24dp</dimen>
+    <dimen name="paddingLeft">24dp</dimen>
+
+</resources>

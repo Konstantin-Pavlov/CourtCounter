@@ -8,14 +8,22 @@ import android.widget.TextView;
 import java.util.concurrent.TimeUnit;
 
 
+
 public class MainActivity extends AppCompatActivity {
     int scoreTeamA = 0;
     int scoreTeamB = 0;
     boolean hasWon = false ;
     final int maxScore = 10;
+    String A_won, B_won, new_game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        A_won = getString(R.string.team_A_won);
+        B_won = getString(R.string.team_B_won);
+        new_game = getString(R.string.new_game);
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //displayForTeamA(0);
@@ -29,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     public void addOneForTeamA(View v) {
         scoreTeamA += 1;
         displayForTeamA(scoreTeamA);
-        checkIsWin(scoreTeamA, "Team A won!");
+        checkIsWin(scoreTeamA, A_won);
     }
 
     /**
@@ -38,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public void addTwoForTeamA(View v) {
         scoreTeamA += 2;
         displayForTeamA(scoreTeamA);
-        checkIsWin(scoreTeamA, "Team A won!");
+        checkIsWin(scoreTeamA, A_won);
     }
 
 
@@ -48,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     public void addThreeForTeamA(View v) {
         scoreTeamA += 3;
         displayForTeamA(scoreTeamA);
-        checkIsWin(scoreTeamA, "Team A won!");
+        checkIsWin(scoreTeamA, A_won);
     }
 
     /**
@@ -67,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     public void addOneForTeamB(View v) {
         scoreTeamB += 1;
         displayForTeamB(scoreTeamB);
-        checkIsWin(scoreTeamB, "Team B won!");
+        checkIsWin(scoreTeamB, B_won);
     }
 
     /**
@@ -76,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     public void addTwoForTeamB(View v)  { //throws InterruptedException
         scoreTeamB += 2;
         displayForTeamB(scoreTeamB);
-        checkIsWin(scoreTeamB, "Team B won!");
+        checkIsWin(scoreTeamB, B_won);
     }
 
 
@@ -86,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     public void addThreeForTeamB(View v) {
         scoreTeamB += 3;
         displayForTeamB(scoreTeamB);
-        checkIsWin(scoreTeamB, "Team B won!");
+        checkIsWin(scoreTeamB, B_won);
     }
 
     /**
@@ -113,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             if (!((scoreTeamA > maxScore) && (scoreTeamB > maxScore))) {
                 display_us_who_won(team);
                 hasWon = true;
-                new_game("press reset to start new game");
+                new_game(new_game);
                 //Thread.sleep(3000);
                 //resetScores();
 
@@ -139,11 +147,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void reset(View v) {
         resetScores();
-    }
+
         /*
         scoreTeamA = 0;
         scoreTeamB = 0;
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
-    }*/
+        */
+    }
+
 }

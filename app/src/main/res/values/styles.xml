@@ -10,4 +10,20 @@
         <item name="colorButtonNormal">#a3bf00</item>
     </style>
 
+    <style name="ScoreButtonsStyle">
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">@dimen/layout_marginLeft_marginRight</item>
+        <item name="android:layout_marginRight">@dimen/layout_marginLeft_marginRight</item>
+    </style>
+
+    <style name="TeamNameStyle">
+        <item name="android:padding">@dimen/padding</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="TeamScoresStyle">
+        <item name="android:paddingBottom">@dimen/paddingBottom</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>
