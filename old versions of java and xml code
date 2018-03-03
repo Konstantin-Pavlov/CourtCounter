@@ -1,0 +1,309 @@
+
+
+***************************************JAVA***************************************
+
+
+package com.example.android.courtcounter;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import java.util.concurrent.TimeUnit;
+
+public class MainActivity extends AppCompatActivity {
+    int scoreTeamA = 0;
+    int scoreTeamB = 0;
+    boolean hasWon = false ;
+    final int maxScore = 10;
+    String  A_won,
+            B_won,
+            new_game;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        A_won = getString(R.string.team_A_won);
+        B_won = getString(R.string.team_B_won);
+        new_game = getString(R.string.new_game);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    /**
+     * Increase the score for Team A by 1 point.
+     */
+    public void addOneForTeamA(View v) {
+        scoreTeamA += 1;
+        displayForTeamA(scoreTeamA);
+        checkIsWin(scoreTeamA, A_won);
+    }
+
+    /**
+     * Increase the score for Team A by 2 points.
+     */
+    public void addTwoForTeamA(View v) {
+        scoreTeamA += 2;
+        displayForTeamA(scoreTeamA);
+        checkIsWin(scoreTeamA, A_won);
+    }
+
+    /**
+     * Increase the score for Team A by 3 points.
+     */
+    public void addThreeForTeamA(View v) {
+        scoreTeamA += 3;
+        displayForTeamA(scoreTeamA);
+        checkIsWin(scoreTeamA, A_won);
+    }
+
+    /**
+     * Displays the given score for Team A.
+     */
+    public void displayForTeamA(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.team_a_score);
+        scoreView.setText(String.valueOf(score));
+    }
+
+    /**
+     * Increase the score for Team B by 1 point.
+     */
+    public void addOneForTeamB(View v) {
+        scoreTeamB += 1;
+        displayForTeamB(scoreTeamB);
+        checkIsWin(scoreTeamB, B_won);
+    }
+
+    /**
+     * Increase the score for Team B by 2 points.
+     */
+    public void addTwoForTeamB(View v)  { //throws InterruptedException
+        scoreTeamB += 2;
+        displayForTeamB(scoreTeamB);
+        checkIsWin(scoreTeamB, B_won);
+    }
+
+    /**
+     * Increase the score for Team B by 3 points.
+     */
+    public void addThreeForTeamB(View v) {
+        scoreTeamB += 3;
+        displayForTeamB(scoreTeamB);
+        checkIsWin(scoreTeamB, B_won);
+    }
+
+    /**
+     * Displays the given score for Team B.
+     */
+    public void displayForTeamB(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
+        scoreView.setText(String.valueOf(score));
+    }
+
+    public void display_us_who_won(String text) {
+        TextView scoreView = (TextView) findViewById(R.id.who_won);
+        scoreView.setText(String.valueOf(text));
+    }
+
+    public void new_game(String text) {
+        TextView scoreView = (TextView) findViewById(R.id.suggest_new_game);
+        scoreView.setText(String.valueOf(text));
+    }
+
+    public void checkIsWin(int score, String team) {
+
+        if (score >= maxScore && !hasWon) {
+            if (!((scoreTeamA > maxScore) && (scoreTeamB > maxScore))) {
+                display_us_who_won(team);
+                hasWon = true;
+                new_game(new_game);
+            }
+        }
+    }
+
+    private void resetScores() {
+        scoreTeamA = 0;
+        scoreTeamB = 0;
+        displayForTeamA(scoreTeamA);
+        displayForTeamB(scoreTeamB);
+        display_us_who_won("");
+        new_game("");
+        hasWon = false;
+    }
+
+    public void reset(View v) {
+        resetScores();
+    }
+}
+
+
+
+
+
+
+
+
+***************************************XML***************************************
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/boss_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/Team_A_linear_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+
+            <TextView
+                style="@style/TeamNameStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/Team_A"
+                android:textColor="@color/colorForTeams"
+                android:textSize="@dimen/TeamTextSize" />
+
+            <TextView
+                android:id="@+id/team_a_score"
+                style="@style/ScoreButtonsStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:paddingBottom="@dimen/paddingBottom"
+                android:text="@string/zero"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/ScoreTextSize" />
+
+            <Button
+                style="@style/ScoreButtonsStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="addThreeForTeamA"
+                android:text="@string/plus_3_points" />
+
+            <Button
+                style="@style/ScoreButtonsStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="addTwoForTeamA"
+                android:text="@string/plus_2_points" />
+
+            <Button
+                style="@style/ScoreButtonsStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="addOneForTeamA"
+                android:text="@string/Free_Throw" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/strange_line"
+            android:layout_width="1dp"
+            android:layout_height="310dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1 "
+            android:orientation="vertical"
+            android:padding="@dimen/padding"
+            tools:context=".MainActivity">
+
+            <TextView
+                style="@style/TeamNameStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/Team_B"
+                android:textColor="@color/colorForTeams"
+                android:textSize="@dimen/TeamTextSize" />
+
+            <TextView
+                android:id="@+id/team_b_score"
+                style="@style/ScoreButtonsStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:paddingBottom="@dimen/paddingBottom"
+                android:text="@string/zero"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/ScoreTextSize" />
+
+            <Button
+                style="@style/ScoreButtonsStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="addThreeForTeamB"
+                android:text="@string/plus_3_points" />
+
+            <Button
+                style="@style/ScoreButtonsStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="addTwoForTeamB"
+                android:text="@string/plus_2_points" />
+
+            <Button
+                android:id="@+id/team_b_3d_button"
+                style="@style/ScoreButtonsStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="addOneForTeamB"
+                android:text="@string/Free_Throw" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/who_won"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/suggest_new_game"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:textColor="@color/who_won"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/suggest_new_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/reset_button"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_purple"
+        android:gravity="center_horizontal"
+        android:textColor="@color/suggest_new_game"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="reset"
+        android:text="@string/reset" />
+
+</RelativeLayout>
