@@ -3,6 +3,7 @@
 
     <string name="Team_A">Team A</string>
     <string name="Team_B">Team B</string>
+    <string name="zero">0</string>
     <string name="plus_3_points">+3 Points</string>
     <string name="plus_2_points">+2 Points</string>
     <string name="Free_Throw">Free throw</string>

@@ -37,29 +37,32 @@
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:paddingBottom="@dimen/paddingBottom"
-                android:text="0"
+                android:text="@string/zero"
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/ScoreTextSize" />
 
             <Button
+                android:id="@+id/addThreeForTeamA"
                 style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="addThreeForTeamA"
+                android:onClick="onClick"
                 android:text="@string/plus_3_points" />
 
             <Button
+                android:id="@+id/addTwoForTeamA"
                 style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="addTwoForTeamA"
+                android:onClick="onClick"
                 android:text="@string/plus_2_points" />
 
             <Button
+                android:id="@+id/addOneForTeamA"
                 style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="addOneForTeamA"
+                android:onClick="onClick"
                 android:text="@string/Free_Throw" />
 
         </LinearLayout>
@@ -71,7 +74,6 @@
             android:layout_marginTop="16dp"
             android:background="@android:color/darker_gray" />
 
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -79,7 +81,6 @@
             android:orientation="vertical"
             android:padding="@dimen/padding"
             tools:context=".MainActivity">
-
 
             <TextView
                 style="@style/TeamNameStyle"
@@ -98,34 +99,35 @@
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:paddingBottom="@dimen/paddingBottom"
-                android:text="0"
+                android:text="@string/zero"
                 android:textColor="@color/colorText"
                 android:textSize="@dimen/ScoreTextSize" />
 
             <Button
+                android:id="@+id/addThreeForTeamB"
                 style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="addThreeForTeamB"
+                android:onClick="onClick"
                 android:text="@string/plus_3_points" />
 
             <Button
+                android:id="@+id/addTwoForTeamB"
                 style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="addTwoForTeamB"
+                android:onClick="onClick"
                 android:text="@string/plus_2_points" />
 
             <Button
-                android:id="@+id/team_b_3d_button"
+                android:id="@+id/addOneForTeamB"
                 style="@style/ScoreButtonsStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="addOneForTeamB"
+                android:onClick="onClick"
                 android:text="@string/Free_Throw" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 
@@ -137,7 +139,6 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal"
-        android:text=""
         android:textColor="@color/who_won"
         android:textSize="30sp" />
 
@@ -149,10 +150,8 @@
         android:layout_centerHorizontal="true"
         android:background="@android:color/holo_purple"
         android:gravity="center_horizontal"
-        android:text=""
         android:textColor="@color/suggest_new_game"
         android:textSize="15sp" />
-
 
     <Button
         android:id="@+id/reset_button"
@@ -160,7 +159,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="reset"
+        android:onClick="onClick"
         android:text="@string/reset" />
 
 </RelativeLayout>
